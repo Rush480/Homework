@@ -4,6 +4,7 @@ public class Quad extends Shape{
     private double side;
 
     public Quad(double side) {
+        super("Quad");
         this.side = side;
     }
 
