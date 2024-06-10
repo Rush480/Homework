@@ -4,18 +4,16 @@ package Module9.CustomArrayList;
 import java.util.Arrays;
 
 public class MyArrayList<E> {
-    private int size = 0;
+    protected int size = 0;
     public static final int DEFAULT_SIZE = 10;
-    private Object array[];
+    private final E[] array = (E[]) new Object[DEFAULT_SIZE];
 
-    MyArrayList() {
-        array = new Object[DEFAULT_SIZE];
-    }
 
     //додаємо елемент у кінець
-    public void add(Object value) {
+    public void add(E value) {
+
+        array[size] = value;
         size++;
-        array[DEFAULT_SIZE - size] = value;
         System.out.println(value + " -  added to the list");
 
     }
@@ -25,12 +23,14 @@ public class MyArrayList<E> {
         if (index >= array.length || index < 0) {
             throw new ArrayIndexOutOfBoundsException("Invalid index");
         }
-        array[index] = 0;
+        for(int i = index; i < size-1; i++){
+            array[i] = array[i+1];
+        }
         System.out.println("Element on index " + index + " has been removed");
         size--;
     }
 
-    // Очищаємо нащу колекцію
+    // Очищаємо нашу колекцію
     public void clear() {
         Arrays.fill(array, 0);
         size = 0;
