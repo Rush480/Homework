@@ -49,6 +49,6 @@ public class MyArrayList<E> {
             throw new ArrayIndexOutOfBoundsException("Invalid index");
         }
         System.out.println("Element on index " + index + " is " + array[index]);
-        return (E) array[index];
+        return array[index];
     }
 }
