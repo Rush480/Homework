@@ -14,7 +14,7 @@ public class MyArrayList<E> {
 
         array[size] = value;
         size++;
-        System.out.println(value + " -  added to the list");
+        //System.out.println(value + " -  added to the list");
 
     }
 
@@ -26,7 +26,7 @@ public class MyArrayList<E> {
         for(int i = index; i < size-1; i++){
             array[i] = array[i+1];
         }
-        System.out.println("Element on index " + index + " has been removed");
+        //System.out.println("Element on index " + index + " has been removed");
         size--;
     }
 
@@ -48,7 +48,7 @@ public class MyArrayList<E> {
         if (index >= array.length || index < 0) {
             throw new ArrayIndexOutOfBoundsException("Invalid index");
         }
-        System.out.println("Element on index " + index + " is " + array[index]);
+        //System.out.println("Element on index " + index + " is " + array[index]);
         return array[index];
     }
 }
