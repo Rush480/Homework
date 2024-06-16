@@ -18,7 +18,7 @@ public class Main {
         for (int i = 0; i < list.size; i++) {
             list.get(i);
         }
-
+        list.clear();
 
 
     }
