@@ -1,6 +1,5 @@
 package Module9.MyArrayList;
 
-
 import java.util.Arrays;
 
 public class MyArrayList<E> {
@@ -11,12 +10,15 @@ public class MyArrayList<E> {
 
     //додаємо елемент у кінець
     public void add(E value) {
-
+        if (size >= DEFAULT_SIZE){
+            throw new ArrayIndexOutOfBoundsException();
+        }
         array[size] = value;
         size++;
-        //System.out.println(value + " -  added to the list");
+        System.out.println(value + " -  added to the list");
 
     }
+
 
     // Видаляємо елемент за вказаним індексом
     public void remove(int index) {

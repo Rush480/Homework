@@ -12,6 +12,7 @@ public class Main {
         list.add("Array");
         list.add("List");
 
+
         System.out.println("list.size() = " + list.size());
         System.out.println("list.get(5) = " + list.get(5));
         list.remove(3);

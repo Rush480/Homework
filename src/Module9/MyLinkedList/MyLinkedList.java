@@ -33,13 +33,13 @@ public class MyLinkedList<T> {
         size = 0;
     }
 
-    public void removeFirst() {
+    private void removeFirst() {
         head = head.next;
         (head.next).prev = null;
         size--;
     }
 
-    public void removeLast() {
+    private void removeLast() {
         Node<T> current = tail;
         (current.prev).next = null;
         size--;
