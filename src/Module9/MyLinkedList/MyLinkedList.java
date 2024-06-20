@@ -66,13 +66,6 @@ public class MyLinkedList<T> {
     }
 
 
-//     метод для виводу усіх елементів колекції в консоль
-//    public void info() {
-//        for (int i = 0; i < size; i++) {
-//            System.out.println(get(i));
-//        }
-//    }
-
     public T get(int index) {
         if (index > size - 1 || index < 0) {
             throw new NoSuchElementException();
