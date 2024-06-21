@@ -4,8 +4,18 @@ public class MyHashMap<K, V> {
     private static final int DEFAULT_SIZE = 8;
     private Entry<K, V>[] context = new Entry[DEFAULT_SIZE];
     private int size;
+    private V nullKeyVal;
+    private boolean nullKeyPresent;
 
     public void put(K key, V value) {
+        if (key == null) {
+            if (!nullKeyPresent) {
+                size++;
+            }
+            nullKeyVal = value;
+            nullKeyPresent = true;
+            return;
+        }
         int index = calculateIndex(key.hashCode());
         Entry<K, V> newEntry = new Entry<>(key, value);
         if (context[index] == null) {
@@ -27,6 +37,12 @@ public class MyHashMap<K, V> {
     }
 
     public V get(K key) {
+        if (key == null) {
+            if (nullKeyPresent) {
+                return nullKeyVal;
+            }
+            return null;
+        }
         int index = calculateIndex(key.hashCode());
         Entry<K, V> current = context[index];
         while (current != null) {
@@ -39,6 +55,14 @@ public class MyHashMap<K, V> {
     }
 
     public void remove(K key) {
+        if (key == null) {
+            if (nullKeyPresent) {
+                nullKeyPresent = false;
+                nullKeyVal = null;
+                size--;
+            }
+            return;
+        }
         int index = calculateIndex(key.hashCode());
         Entry<K, V> current = context[index];
         Entry<K, V> prev = null;
@@ -56,12 +80,16 @@ public class MyHashMap<K, V> {
             current = current.next;
         }
     }
+
     public void clear() {
         for (int i = 0; i < context.length; i++) {
             context[i] = null;
         }
         size = 0;
+        nullKeyPresent = false;
+        nullKeyVal = null;
     }
+
     public int size() {
         return size;
     }
