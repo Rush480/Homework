@@ -21,17 +21,20 @@ public class Task3 {
             }
         }
 
-        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
+        List<Map.Entry<String, Integer>> wordCountList = new ArrayList<>(wordCountMap.entrySet());
+        wordCountList.sort(new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+        for (Map.Entry<String, Integer> entry : wordCountList) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
-
-
-        System.out.println("Arrays.toString(array) = " + Arrays.toString(words));
-
-
     }
 }
-class MyFileReader{
+
+class MyFileReader {
 
     public String ReadFile(String path) throws FileNotFoundException {
         File file = new File(path);
