@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/src/main/java/Module10/DemoJson.java
+/src/main/java/Module10/Customer.java
+/src/main/java/Module10/Address.java
