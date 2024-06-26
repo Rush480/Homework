@@ -4,14 +4,23 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Task1 {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args){
 
-        File file = new File("Files/Task1/file.txt");
-        FileInputStream fIs = new FileInputStream(file);
-        Scanner fileScanner = new Scanner(fIs);
+        final var fileScanner = getScanner();
         while (fileScanner.hasNext()) {
             validate(fileScanner.nextLine());
         }
+    }
+
+    private static Scanner getScanner() {
+        FileInputStream fIs;
+        try {
+            File file = new File("Files/Task1/file.txt");
+            fIs = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return new Scanner(fIs);
     }
 
     public static void validate(String num) {

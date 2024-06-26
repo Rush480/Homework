@@ -9,7 +9,9 @@ public class Task3 {
     public static void main(String[] args) throws FileNotFoundException {
         MyFileReader str = new MyFileReader();
         String text = str.ReadFile("Files/Task3/words.txt");
-        System.out.println(text);
+
+        //System.out.println(text);
+
         String[] words = text.split(" ");
 
         Map<String, Integer> wordCountMap = new HashMap<>();
@@ -40,11 +42,11 @@ class MyFileReader {
         File file = new File(path);
         FileInputStream fIs = new FileInputStream(file);
         Scanner scanner = new Scanner(fIs);
-        String text = "";
+        StringBuilder text = new StringBuilder();
         while (scanner.hasNext()) {
-            text = text + " " + scanner.nextLine();
+            text.append(" ").append(scanner.nextLine());
         }
-        return text.trim();
+        return String.valueOf(text).trim();
     }
 
 }

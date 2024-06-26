@@ -39,8 +39,10 @@ public class MyQueue<T> {
         if (head == null) {
             return null;
         }
+
         T returnElem = head.element;
         head = head.next;
+
         if (head != null) {
             head.prev = null;
         }
