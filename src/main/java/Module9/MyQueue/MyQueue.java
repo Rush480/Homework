@@ -35,13 +35,19 @@ public class MyQueue<T> {
         return head.element;
     }
 
-    public T pool() {
+    public T poll() {
+        if (head == null) {
+            return null;
+        }
         T returnElem = head.element;
         head = head.next;
-        (head.next).prev = null;
+        if (head != null) {
+            head.prev = null;
+        }
         size--;
         return returnElem;
     }
+
 
     static class Node<T> {
         T element;
